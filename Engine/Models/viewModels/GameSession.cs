@@ -11,7 +11,7 @@ namespace Engine.Models.viewModels
    public class GameSession
     {
         public Player CurrentPlayer { get; set; }
-
+        public Location CurrentLocation { get; set; }
         public GameSession()
         {
             CurrentPlayer = new Player();
@@ -23,7 +23,11 @@ namespace Engine.Models.viewModels
             CurrentPlayer.HitPoints = 10;
             CurrentPlayer.Gold  = 10000000;
 
-
+            CurrentLocation = new Location();
+            CurrentLocation.XCoordinate = 0;
+            CurrentLocation.YCoordinate = -1;
+            CurrentLocation.Name = "Home";
+            CurrentLocation.Description = "This is your house";
         }
     }
 }

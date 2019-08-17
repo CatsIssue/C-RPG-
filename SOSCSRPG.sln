@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFUI", "WPFUI\WPFUI.csproj", "{A4184AAA-FDEC-4666-86A9-EB97DE7CFBA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{5AF9568A-8CC3-4617-95E1-2CDFDEC41726}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +17,16 @@ Global
 		{A4184AAA-FDEC-4666-86A9-EB97DE7CFBA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4184AAA-FDEC-4666-86A9-EB97DE7CFBA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4184AAA-FDEC-4666-86A9-EB97DE7CFBA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AF9568A-8CC3-4617-95E1-2CDFDEC41726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF9568A-8CC3-4617-95E1-2CDFDEC41726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AF9568A-8CC3-4617-95E1-2CDFDEC41726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AF9568A-8CC3-4617-95E1-2CDFDEC41726}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6D37DA0-FBB0-4894-922F-65F2BD90133B}
+		VisualSVNWorkingCopyRoot = .
 	EndGlobalSection
 EndGlobal

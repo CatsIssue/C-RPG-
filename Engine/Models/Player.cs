@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Engine.Models
 {
-    public class Player : INotifyPropertyChanged
+    public class Player : BaseNotificationClass
     {
         private int _experiencePoint;
         private string _characterClass;
@@ -22,7 +22,7 @@ namespace Engine.Models
             set
             {
                 _name = value;
-                onPropertyChanged("Name");
+                onPropertyChanged(nameof(Name));
             }
         }
         public string CharacterClass
@@ -31,7 +31,7 @@ namespace Engine.Models
             set
             {
                 _characterClass = value;
-                onPropertyChanged("CharacterClass");
+                onPropertyChanged(nameof(CharacterClass));
             }
         }
         public int ExperiencePoints
@@ -40,7 +40,7 @@ namespace Engine.Models
             set
             {
                 _experiencePoint = value;
-                onPropertyChanged("ExperiencePoints");
+                onPropertyChanged(nameof(ExperiencePoints));
             }
         }
 
@@ -50,7 +50,7 @@ namespace Engine.Models
             set
             {
                 _level = value;
-                onPropertyChanged("Level");
+                onPropertyChanged(nameof(Level));
             }
         }
 
@@ -60,7 +60,7 @@ namespace Engine.Models
             set
             {
                 _gold = value;
-                onPropertyChanged("Gold");
+                onPropertyChanged(nameof(Gold));
             }
         }
         public int HitPoints
@@ -69,16 +69,10 @@ namespace Engine.Models
             set
             {
                 _hitPoints = value;
-                onPropertyChanged("HitPoints");
+                onPropertyChanged(nameof(HitPoints));
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void onPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        }
+        
     }
 }

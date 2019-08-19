@@ -33,9 +33,21 @@ namespace WPFUI
 
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void OnClick_moveNorth(object sender, RoutedEventArgs e)
         {
-            _gameSession.CurrentPlayer.ExperiencePoints = _gameSession.CurrentPlayer.ExperiencePoints + 10;
+            _gameSession.MoveNorth();
+        }
+        private void OnClick_moveWest(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveWest();
+        }
+        private void OnClick_moveEast(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveEast();
+        }
+        private void OnClick_moveSouth(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveSouth();
         }
     }
 }

@@ -23,8 +23,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+         <!-- Menu -->
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="AliceBlue"/>
-
+        
+        <!-- Player statistics -->
         <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -55,7 +57,8 @@
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
  
         </Grid>
-
+        
+        <!-- Gameplay --> 
         <Grid Grid.Row="1" Grid.Column="1"
               Background="Beige">
             <Grid.RowDefinitions>
@@ -67,7 +70,8 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
-
+            
+            <!--Location information -->
             <Border Grid.Row="0" Grid.Column="1"
                     BorderBrush="Gainsboro"
                     BorderThickness="1">
@@ -87,9 +91,78 @@
                 </Grid>
 
             </Border>
+            
+            <!-- Monster information -->
+            <Border Grid.Row="1" Grid.Column="1" 
+                    BorderBrush="Gainsboro"
+                    BorderThickness="1">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0"
+                               HorizontalAlignment="Center"
+                               Height="Auto"
+                               Text="{Binding CurrentMonster.Name}"/>
+
+                    <Image Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           Height="125"
+                           Width="125"
+                           Source="{Binding CurrentMonster.ImageName}"/>
+
+                    <StackPanel Grid.Row="2"
+                                Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                        <!--Put 2-text blocks on the same raw-->
+                        <TextBlock> Current Hit Points: </TextBlock>
+                        <TextBlock Text="{Binding CurrentMonster.HitPoints}"></TextBlock>
+                    </StackPanel>
+                    
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0" Background="BurlyWood">
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Description"
+                                                Binding="{Binding Name}" 
+                                                Width="*"/>
+                            <DataGridTextColumn Header ="Price"
+                                                 Binding ="{Binding Price}"
+                                                 Width="Auto"/>
+ 
+                        </DataGrid.Columns>
+                    </DataGrid>    
+                </TabItem>
+                <TabItem Header="Quests">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name"
+                                                Binding="{Binding PlayerQuest.Name}"
+                                                Width="*"/>
+                            <DataGridTextColumn Header="Done?"
+                                                Binding="{Binding IsCompleted}"
+                                                Width="Auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
         </Grid>
         
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="BurlyWood"/>
         <Grid Grid.Row="2" Grid.Column="1" Background="Lavender">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
